@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Syllabus Tracker</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<h1>VPMP Syllabus Progress Tracker</h1>
+
+<!-- 🔥 TOP CARD -->
+<div class="card top-bar">
+
+    <input type="text" id="teacher" placeholder="Teacher Name">
+
+    <select id="semester" onchange="loadSubjects()">
+        <option value="">Semester</option>
+        <option>Semester 1</option>
+        <option>Semester 2</option>
+        <option>Semester 3</option>
+        <option>Semester 4</option>
+        <option>Semester 5</option>
+        <option>Semester 6</option>
+    </select>
+
+    <input type="text" id="class" placeholder="Enter Class (e.g. 23CE1)">
+
+    <select id="subject" onchange="showHeader(); loadUnits()">
+        <option value="">Subject</option>
+    </select>
+
+</div>
+
+<!-- 🔥 STATUS BAR -->
+<div id="infoBox" class="status-bar"></div>
+
+<!-- 🔥 SMART SUGGESTION -->
+<p id="smartSuggestion" class="suggestion"></p>
+
+<!-- 🔥 TOGGLE -->
+<label class="toggle">
+    <input type="checkbox" id="skipLow" onchange="renderUnits()">
+    Skip Low Priority Units (&lt;15%)
+</label>
+
+<h2>Enter Progress</h2>
+
+<!-- 🔥 UNITS -->
+<div id="units"></div>
+
+<!-- 🔥 BUTTONS -->
+<div class="btn-group">
+    <button onclick="calculate()">Calculate</button>
+    <button onclick="downloadReport()">Download Report</button>
+</div>
+
+<h2 id="result"></h2>
+
+<!-- 🔥 REPORT -->
+<div id="reportBox"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
